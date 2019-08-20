@@ -9,3 +9,6 @@
 [EN] You can create a loca.settings.json file and create the connection strings AzureWebJobsStorage and AzureWebJobsDashboard and place your connection string with Azure Storage or you can publish it directly to Azure.
 
 [PT] Você pode criar um arquivo loca.settings.json e criar as connections strings AzureWebJobsStorage e AzureWebJobsDashboard e colocar sua string de conexão com o Azure Storage ou você pode publicar diretamente no Azure.
+
+## Build Status
+[![Build Status](https://api.travis-ci.org/ericsonf/AzureFunctions.svg?branch=master)](https://api.travis-ci.org/ericsonf/AzureFunctions.svg?branch=master)
