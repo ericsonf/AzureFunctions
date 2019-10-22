@@ -13,7 +13,7 @@ namespace AzureFunctions
         [FunctionName("ListPeople")]
         public static async Task<IEnumerable<Person>> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest req,
-            [Table("serverlesspersontable")]CloudTable cloudTable,
+            [Table("Person")]CloudTable cloudTable,
             ILogger log)
         {
             log.LogInformation("C# HTTP trigger function started a request.");

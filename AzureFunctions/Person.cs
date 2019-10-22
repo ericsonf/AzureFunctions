@@ -1,4 +1,5 @@
-﻿using Microsoft.WindowsAzure.Storage.Table;
+﻿using System;
+using Microsoft.WindowsAzure.Storage.Table;
 
 namespace AzureFunctions
 {
@@ -8,5 +9,10 @@ namespace AzureFunctions
         public string Email { get; set; }
 
         public Person() { }
+
+        public static explicit operator Person(DynamicTableEntity v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

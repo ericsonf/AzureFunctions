@@ -7,25 +7,22 @@ using Newtonsoft.Json.Linq;
 
 namespace AzureFunctions
 {
-    public static class QueuePerson
+    public static class CreatePersonQueue
     {
-        [FunctionName("QueuePerson")]
+        [FunctionName("CreatePersonQueue")]
         public static void Run(
-            [QueueTrigger("serverlesspersonqueue", Connection = "AzureWebJobsStorage")]string queueItem, 
-            [Table("serverlesspersontable")]CloudTable cloudTable, 
+            [QueueTrigger("CreatePerson", Connection = "AzureWebJobsStorage")]string queueItem, 
+            [Table("Person")]CloudTable cloudTable, 
             ILogger log)
         {
-            log.LogInformation($"C# Queue trigger function started.");
-
-            string name = null;
-            string email = null;
+            log.LogInformation($"CreatePersonQueue trigger function started.");
 
             JObject data = JsonConvert.DeserializeObject<JObject>(queueItem);
-            name = name ?? data?["name"].ToString();
-            email = email ?? data?["email"].ToString();
+            var name = data?["name"].ToString();
+            var email = data?["email"].ToString();
 
             var person = new Person();
-            person.PartitionKey = "Pessoas";
+            person.PartitionKey = "Person";
             person.RowKey = Guid.NewGuid().ToString();
             person.Name = name;
             person.Email = email;
@@ -33,7 +30,7 @@ namespace AzureFunctions
             var tableOperation = TableOperation.Insert(person);
             cloudTable.ExecuteAsync(tableOperation);
 
-            log.LogInformation($"C# Queue trigger function finished.");
+            log.LogInformation($"CreatePersonQueue trigger function finished.");
         }
     }
 }

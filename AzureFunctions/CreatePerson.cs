@@ -13,15 +13,15 @@ namespace AzureFunctions
         [FunctionName("CreatePerson")]
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)]HttpRequest req, 
-            [Queue("serverlesspersonqueue", Connection = "AzureWebJobsStorage")]IAsyncCollector<string> queueItem, 
+            [Queue("CreatePerson", Connection = "AzureWebJobsStorage")]IAsyncCollector<string> queueItem, 
             ILogger log)
         {
-            log.LogInformation("C# HTTP trigger function started a request.");
+            log.LogInformation("CreatePerson function started a request.");
 
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
             await queueItem.AddAsync(requestBody);
 
-            log.LogInformation("C# HTTP trigger function finished a request.");
+            log.LogInformation("CreatePerson function finished a request.");
 
             return new OkObjectResult($"Obrigado! Seu registro já esta sendo processado.");
         }
