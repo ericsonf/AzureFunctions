@@ -4,3 +4,5 @@ AzureFunctions/.DS_Store
 .vs/AzureFunctions/xs/sqlite3/storage.ide
 .vs/AzureFunctions/xs/sqlite3/db.lock
 .vs/AzureFunctions/xs/project-cache/AzureFunctions-Debug.json
+.vs/AzureFunctions/xs/sqlite3/storage.ide-shm
+.vs/AzureFunctions/xs/sqlite3/storage.ide-wal

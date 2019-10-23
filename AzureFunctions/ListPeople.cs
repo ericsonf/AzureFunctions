@@ -16,7 +16,7 @@ namespace AzureFunctions
             [Table("Person")]CloudTable cloudTable,
             ILogger log)
         {
-            log.LogInformation("C# HTTP trigger function started a request.");
+            log.LogInformation("ListPeople function started a request.");
 
             var tableQuery = new TableQuery<Person>();
             TableContinuationToken continuationToken = null;
@@ -28,7 +28,7 @@ namespace AzureFunctions
                 continuationToken = tableQueryResult.ContinuationToken;
             } while (continuationToken != null);
 
-            log.LogInformation("C# HTTP trigger function finished a request.");
+            log.LogInformation("ListPeople function finished a request.");
 
             return tableQueryResult.Results;
         }
