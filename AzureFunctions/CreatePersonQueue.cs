@@ -17,7 +17,7 @@ namespace AzureFunctions
         {
             log.LogInformation($"CreatePersonQueue trigger function started.");
 
-            var data = JsonConvert.DeserializeObject<Person>(queueItem);
+            var data = JsonConvert.DeserializeObject<Person>(queueItem); 
             data.PartitionKey = "Person";
             data.RowKey = Guid.NewGuid().ToString();
 
