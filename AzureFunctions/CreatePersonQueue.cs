@@ -17,17 +17,11 @@ namespace AzureFunctions
         {
             log.LogInformation($"CreatePersonQueue trigger function started.");
 
-            JObject data = JsonConvert.DeserializeObject<JObject>(queueItem);
-            var name = data?["name"].ToString();
-            var email = data?["email"].ToString();
+            var data = JsonConvert.DeserializeObject<Person>(queueItem);
+            data.PartitionKey = "Person";
+            data.RowKey = Guid.NewGuid().ToString();
 
-            var person = new Person();
-            person.PartitionKey = "Person";
-            person.RowKey = Guid.NewGuid().ToString();
-            person.Name = name;
-            person.Email = email;
-
-            var tableOperation = TableOperation.Insert(person);
+            var tableOperation = TableOperation.Insert(data);
             cloudTable.ExecuteAsync(tableOperation);
 
             log.LogInformation($"CreatePersonQueue trigger function finished.");

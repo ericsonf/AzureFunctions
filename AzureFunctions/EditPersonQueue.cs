@@ -17,19 +17,9 @@ namespace AzureFunctions
         {
             log.LogInformation($"EditPersonQueue trigger function started.");
 
-            JObject data = JsonConvert.DeserializeObject<JObject>(queueItem);
-            var partitionKey = data?["partitionKey"].ToString();
-            var rowKey = data?["rowKey"].ToString();
-            var name = data?["name"].ToString();
-            var email = data?["email"].ToString();
+            var data = JsonConvert.DeserializeObject<Person>(queueItem);
 
-            var person = new Person();
-            person.PartitionKey = partitionKey;
-            person.RowKey = rowKey;
-            person.Name = name;
-            person.Email = email;
-
-            var tableOperation = TableOperation.InsertOrReplace(person);
+            var tableOperation = TableOperation.InsertOrReplace(data);
             cloudTable.ExecuteAsync(tableOperation);
 
             log.LogInformation($"EditPersonQueue trigger function finished.");

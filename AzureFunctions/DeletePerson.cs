@@ -1,10 +1,10 @@
-using System.IO;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+using System.Threading.Tasks;
 
 namespace AzureFunctions
 {
@@ -18,8 +18,15 @@ namespace AzureFunctions
         {
             log.LogInformation("DeletPerson function started a request.");
 
-            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            await queueItem.AddAsync(requestBody);
+            await queueItem.AddAsync(
+                JsonConvert.SerializeObject(
+                    new Person
+                    {
+                        PartitionKey = "Person",
+                        RowKey = req.Query["id"]
+                    }
+                )
+            );
 
             log.LogInformation("DeletePerson function finished a request.");
 

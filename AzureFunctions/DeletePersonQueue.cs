@@ -16,11 +16,9 @@ namespace AzureFunctions
         {
             log.LogInformation($"DeletePersonQueue trigger function started.");
 
-            JObject data = JsonConvert.DeserializeObject<JObject>(queueItem);
-            var partitionKey = data?["partitionKey"].ToString();
-            var rowKey = data?["rowKey"].ToString();
+            var data = JsonConvert.DeserializeObject<Person>(queueItem);
 
-            var person = new DynamicTableEntity(partitionKey, rowKey);
+            var person = new DynamicTableEntity(data?.PartitionKey, data?.RowKey);
             person.ETag = "*";
 
             var tableOperation = TableOperation.Delete(person);

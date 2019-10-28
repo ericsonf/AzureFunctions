@@ -20,10 +20,8 @@ namespace AzureFunctions
         {
             log.LogInformation("GetPerson function started a request.");
 
-            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            JObject data = JsonConvert.DeserializeObject<JObject>(requestBody);
-            var partitionKey = data?["partitionKey"].ToString();
-            var rowKey = data?["rowKey"].ToString();
+            var partitionKey = "Person";
+            var rowKey = req.Query["id"];
 
             TableOperation person = TableOperation.Retrieve<Person>(partitionKey, rowKey);
             TableResult result = await cloudTable.ExecuteAsync(person);
