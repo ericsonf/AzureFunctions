@@ -18,7 +18,7 @@ namespace AzureFunctions
 
             var data = JsonConvert.DeserializeObject<Person>(queueItem);
 
-            var person = new DynamicTableEntity(data?.PartitionKey, data?.RowKey); 
+            var person = new DynamicTableEntity(data?.PartitionKey, data?.RowKey);
             person.ETag = "*";
 
             var tableOperation = TableOperation.Delete(person);

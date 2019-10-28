@@ -20,7 +20,7 @@ namespace AzureFunctions
         {
             log.LogInformation("GetPerson function started a request.");
 
-            var partitionKey = "Person"; 
+            var partitionKey = "Person";
             var rowKey = req.Query["id"];
 
             TableOperation person = TableOperation.Retrieve<Person>(partitionKey, rowKey);
