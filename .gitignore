@@ -7,3 +7,6 @@ AzureFunctions/.DS_Store
 .vs/AzureFunctions/xs/sqlite3/storage.ide-shm
 .vs/AzureFunctions/xs/sqlite3/storage.ide-wal
 AzureFunctions/Properties/PublishProfiles/af-d-eus-af - Zip Deploy.pubxml
+.DS_Store
+Angular/.DS_Store
+Angular/src/assets/.gitkeep
