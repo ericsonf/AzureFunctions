@@ -10,3 +10,6 @@ AzureFunctions/Properties/PublishProfiles/af-d-eus-af - Zip Deploy.pubxml
 Angular/.DS_Store
 Angular/src/assets/.gitkeep
 Angular/node_modules
+AzureFunctions/Properties/PublishProfiles/id-d-eus-af - Web Deploy.pubxml
+AzureFunctions/Properties/PublishProfiles/id-d-eus-af - Web Deploy.pubxml
+*.pubxml
