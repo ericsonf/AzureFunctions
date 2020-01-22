@@ -9,10 +9,5 @@ namespace AzureFunctions
         public string Email { get; set; }
 
         public Person() { }
-
-        public static explicit operator Person(DynamicTableEntity v)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
