@@ -5,6 +5,7 @@
 .vs/AzureFunctions/xs/sqlite3/storage.ide
 .vs/AzureFunctions/xs/UserPrefs.xml
 Angular/.DS_Store
-Angular/dist/.DS_Store
+Angular/dist/**
 Angular/src/.DS_Store
 Angular/src/assets/.gitkeep
+Angular/src/environments/environment.prod.ts
