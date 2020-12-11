@@ -12,7 +12,7 @@ namespace AzureFunctions
     {
         [FunctionName("CreatePerson")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)]HttpRequest req, 
+            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)]HttpRequest req, 
             [Queue("CreatePerson", Connection = "AzureWebJobsStorage")]IAsyncCollector<string> queueItem, 
             ILogger log)
         {
@@ -23,7 +23,7 @@ namespace AzureFunctions
 
             log.LogInformation("CreatePerson function finished a request.");
 
-            return new OkObjectResult($"Obrigado! Seu registro já esta sendo processado.");
+            return new OkObjectResult($"Obrigado! Seu registro jï¿½ esta sendo processado.");
         }
     }
 }

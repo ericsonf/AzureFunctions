@@ -11,7 +11,7 @@ namespace AzureFunctions
     {
         [FunctionName("GetPerson")]
         public static async Task<Person> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req,
             [Table("Person")]CloudTable cloudTable,
             ILogger log)
         {

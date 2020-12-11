@@ -12,7 +12,7 @@ namespace AzureFunctions
     {
         [FunctionName("EditPerson")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "put", Route = null)]HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "put", Route = null)]HttpRequest req,
             [Queue("EditPerson", Connection = "AzureWebJobsStorage")]IAsyncCollector<string> queueItem,
             ILogger log)
         {

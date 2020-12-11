@@ -12,7 +12,7 @@ namespace AzureFunctions
     {
         [FunctionName("DeletePerson")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "delete", Route = null)]HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "delete", Route = null)]HttpRequest req,
             [Queue("DeletePerson", Connection = "AzureWebJobsStorage")]IAsyncCollector<string> queueItem,
             ILogger log)
         {
