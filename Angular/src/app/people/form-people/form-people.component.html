@@ -10,7 +10,7 @@
     </div>
     <div class="form-group">
         <label for="name">Name: </label>
-        <input type="text" class="form-control" id="name" placeholder="Name" formControlName="name" />
+        <input type="text" class="form-control" id="name" placeholder="John Snow" formControlName="name" />
         <div class="text-danger" *ngIf="hasError('name') && hasError('name')['required']">
             This field is required!
         </div>
@@ -18,9 +18,10 @@
             This field must be at least 3 characters!
         </div>
     </div>
+    <div>&nbsp;</div>
     <div class="form-group">
         <label for="name">E-mail: </label>
-        <input type="text" class="form-control" id="email" placeholder="E-mail" formControlName="email" />
+        <input type="text" class="form-control" id="email" placeholder="name@example.com" formControlName="email" />
         <div class="text-danger" *ngIf="hasError('email') && hasError('email')['required']">
             This field is required!
         </div>
@@ -32,6 +33,6 @@
     <div>
         <button type="submit" class="btn btn-primary" (click)="onSubmit()">Save</button>
         &nbsp;
-        <button type="button" class="btn btn-default" (click)="onCancel()">Cancel</button>
+        <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancel</button>
     </div>
 </form>

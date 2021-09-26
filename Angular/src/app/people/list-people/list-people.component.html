@@ -5,8 +5,10 @@
                 <h2>Manage <b>People</b></h2>
             </div>
             <div class="col-sm-6">
-                <a href="#" class="btn btn-success" [routerLink]="['new-person']"><i class="glyphicon glyphicon-plus"></i>
-                    <span>Add New Person</span></a>
+                <a href="#" class="btn btn-success" [routerLink]="['new-person']">
+                    <i class="fas fa-plus"></i>
+                    <span>Add New Person</span>
+                </a>
             </div>
         </div>
     </div>
@@ -23,10 +25,12 @@
                 <td>{{ person.name }}</td>
                 <td>{{ person.email }}</td>
                 <td>
-                    <a href="javascript:(0);" class="edit" data-toggle="modal"><i class="glyphicon glyphicon-pencil"
-                            data-toggle="tooltip" (click)="onEdit(person.rowKey)" title="Edit"></i></a>
-                    <a href="javascript:(0);" class="delete" data-toggle="modal"><i class="glyphicon glyphicon-remove"
-                            data-toggle="tooltip" (click)="onDelete(person.rowKey)" title="Delete"></i></a>
+                    <a href="javascript:(0);" class="edit" data-toggle="modal">
+                        <span style="color:rgb(255, 243, 71);"><i class="fas fa-pencil" data-toggle="tooltip" (click)="onEdit(person.rowKey)" title="Edit"></i></span>
+                    </a>
+                    <a href="javascript:(0);" class="delete" data-toggle="modal">
+                        <span style="color:tomato;"><i class="fas fa-remove" data-toggle="tooltip" (click)="onDelete(person.rowKey)" title="Delete"></i></span>
+                    </a>
                 </td>
             </tr>
         </tbody>
