@@ -6,6 +6,7 @@
 .vs/AzureFunctions/xs/UserPrefs.xml
 Angular/.DS_Store
 Angular/dist/**
+Angular/node_modules/**
 Angular/src/.DS_Store
 Angular/src/assets/.gitkeep
 Angular/src/environments/environment.prod.ts
