@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
 .table-wrapper {
     background: #fff;
     padding: 20px 25px;
@@ -8,7 +10,7 @@
 }
 .table-title {        
     padding-bottom: 15px;
-    background: #435d7d;
+    background: #212529;
     color: #fff;
     padding: 16px 30px;
     margin: -20px -25px 10px;
